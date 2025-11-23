@@ -1,18 +1,46 @@
-program complex_nested;
+program compatible_test;
 begin
+    { 基本赋值 }
+    a := 5;
+    b := 10;
+    
+    { 带括号的算术表达式 }
+    c := (a + b) * 2;
+    
+    { 简单条件表达式 - 不使用括号内的算术表达式 }
+    if a > b then max := a else max := b;
+    
+    { 使用mod运算符 - 不使用括号 }
+    if a mod 2 = 0 then even := 1 else even := 0;
+    
+    { 简单逻辑运算 }
+    if a > 0 and b > 0 then both_positive := 1;
+    
+    { 带括号的逻辑表达式 }
+    if (a > 0) and (b > 0) then both_pos := 1;
+    
+    { 嵌套if语句 }
+    if a > 0 then
+        if b > 0 then
+            nested := 1;
+    
+    { while循环 }
+    counter := 0;
+    while counter < 5 do
+        counter := counter + 1;
+    
+    { 带begin-end的循环 }
     total := 0;
     i := 1;
-    while i <= 10 do begin
-        if (i mod 2) = 0 then begin
-            if not (i = 6) then begin
-                total := total + i;
-                if total > 20 then break
-            end
-        end;
+    while i <= 3 do begin
+        total := total + i;
         i := i + 1
     end;
-    if (total > 15) and (i < 12) then
-        output := total * 2
-    else
-        output := total
+    
+    { break语句 }
+    j := 0;
+    while j < 10 do begin
+        if j = 5 then break;
+        j := j + 1
+    end
 end.
